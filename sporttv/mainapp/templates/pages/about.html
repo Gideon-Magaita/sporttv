@@ -1,0 +1,17 @@
+{% extends 'pages/base-other.html' %}
+{% block content %}
+{% load static %}
+				
+<div class="fullwidth-block content">
+	{% for a in about %}
+	<div class="container">
+      <p>{{ a.description | safe }}</p>		
+	</div>
+	{% empty %}
+	<div class="container">
+		<p style="text-align: center;">About info not found at the moment!</p>		
+	  </div>
+	{% endfor %}
+</div>
+
+{% endblock %}

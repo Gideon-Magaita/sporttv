@@ -1,0 +1,104 @@
+{% extends 'pages/admins/base.html' %}
+{% block content %}
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h2 class="m-0"></h2>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="{% url 'admin_home' %}">Home</a></li>
+          <li class="breadcrumb-item active">News</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-6 col-sm-3">
+        <!--messages-->
+        {% include 'message.html' %}
+        <!--messages-->
+        <div class="card shadow">
+          <div class="card-header">
+            <h2>News</h2>
+          </div>
+          <div class="card-body">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#staticBackdrop">
+              Add News
+             </button>
+     
+             <!-- Modal -->
+             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+               <div class="modal-dialog custom-modal-width">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <h5 class="modal-title" id="staticBackdropLabel">News Form</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                   <div class="modal-body">
+                     <form action="" method="post" enctype="multipart/form-data">
+                       {% csrf_token %}
+                        {{form.as_p}}
+                       <div class="row">
+                         <div class="col-md-6">
+                           <button type="button" class="btn btn-secondary form-control" data-dismiss="modal">Close</button>
+                         </div>
+                         <div class="col-md-6">
+                           <button type="submit" class="btn btn-info form-control">Save Details</button>
+                         </div>
+                       </div>
+                     </form>
+                   </div>
+                 </div>
+               </div>
+             </div>
+            <!--table-->
+            <div class="table-responsive animate__animated animate__fadeIn">
+              <table id="mytable" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>News Title</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for n in  news %}
+                    <tr>
+                        <td>{{ n.news_title }}</td>
+                        <td>{{ n.description | safe}}</td>
+                        <td>{{ n.date}}</td>
+                        <td>{{ n.status}}</td>
+                        <td style="display:flex;">
+                            <a href="{% url 'edit_news_details' n.id %}" class="btn btn-success" style="margin-right: 10px;">Edit</a>
+                            <a onclick="return confirm('Are you you want to delete?')" href="{% url 'delete_news' n.id %}" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!--table-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!--/. container-fluid -->
+</section>
+<!-- /.content -->
+
+{% endblock %}

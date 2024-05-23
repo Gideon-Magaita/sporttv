@@ -1,0 +1,38 @@
+{% extends 'pages/base-other.html' %}
+{% block content %}
+{% load static %}
+				
+<div class="fullwidth-block content">
+	<div class="container">
+		<h3 class="entry-title">Thank you for reaching out to John Sport TV. Whether you have a question, feedback, or need assistance, our team is here to help. Please use the form below to get in touch with us, and we will respond as soon as possible.</h3>
+
+		<div class="row">
+			<div class="col-md-5">
+				{% include 'message.html' %}
+				<form action="#" class="contact-form" method="post">
+					{% csrf_token %}
+					<input type="text" name="name" id="name" placeholder="Name...">
+					<input type="email" name="email" id="email" placeholder="Email...">
+					<input type="text" name="website" id="website" placeholder="Website...">
+					<textarea name="message" id="message" placeholder="Message..."></textarea>
+					<div class="text-right">
+						<input type="submit" value="Send message">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-6 col-md-offset-1">
+				<div class="map-container">
+					<div class="map"></div>
+					<address>
+						<strong>JOHNSPORTTV</strong>
+						<a href="JohnSportTV.com">JohnSportTV.com</a> <br>
+						<span>Tanzania</span>
+						<a href="tel:+255756705174">+255756705174</a>
+					</address>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+			

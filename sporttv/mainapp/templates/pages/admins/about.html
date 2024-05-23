@@ -1,0 +1,84 @@
+{% extends 'pages/admins/base.html' %}
+{% block content %}
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h2 class="m-0"></h2>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="{% url 'admin_home' %}">Home</a></li>
+          <li class="breadcrumb-item active">About</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-6 col-sm-3">
+        {% include 'message.html' %}
+        <div class="card shadow">
+          <div class="card-header">
+            <h2>About</h2>
+          </div>
+          <div class="card-body">
+            <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#staticBackdrop">
+              Add About Info
+            </button>
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog custom-modal-width">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">About Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      <div class="row">
+                        <div class="col-md-6">
+                          <button type="button" class="btn btn-secondary form-control" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-md-6">
+                          <button type="submit" class="btn btn-info form-control">Save Details</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive animate__animated animate__fadeIn">
+              <table id="mytable" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for a in about %}
+                  <tr>
+                    <td>{{ a.description | safe }}</td>
+                    <td style="display:flex;">
+                      <a href="{% url 'edit_about_details' a.id %}" class="btn btn-success" style="margin-right: 10px;">Edit</a>
+                      <a onclick="return confirm('Are you sure you want to delete?')" href="{% url 'delete_about_details' a.id %}" class="btn btn-danger">Delete</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
