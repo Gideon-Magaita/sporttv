@@ -26,9 +26,11 @@
     gap: 20px;
     justify-content: center;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .payment-plan-card {
+    background: linear-gradient(135deg, #6e97d4 0%, #c3cfe2 100%); /* Gradient background color */
     flex: 1 1 calc(50% - 20px); /* Adjust to fit two cards per row with a gap */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow for elevation */
     border-radius: 10px;
@@ -43,6 +45,7 @@
 
 .payment-plan-card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Shadow elevation on hover */
+    transform: scale(1.05);
 }
 
 .payment-plan-icon {
@@ -51,9 +54,10 @@
 }
 
 .payment-plan-title {
-    font-size: 1.5em;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
-    color: #333;
+    text-align: center; 
 }
 
 .payment-plan-duration,
@@ -92,6 +96,7 @@
     text-align: center;
     font-size: 1em;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Added transition for smooth background color change */
 }
 
 .subscribe-button:hover {
@@ -125,7 +130,44 @@
     height: auto;
     display: block;
 }
+/* styling for the free trial button */
 
+.center-container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+margin-bottom: 10px;
+}
+
+.btn {
+display: inline-block;
+padding: 15px 20px;
+margin: 10px 0;
+font-size: 16px;
+font-weight: bold;
+text-align: center;
+text-decoration: none;
+color: #fff;
+background-color: #007bff;
+border-radius: 50px;
+transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+background-color: #0056b3;
+}
+
+.btn:focus {
+outline: none;
+box-shadow: 0 0 5px #0056b3;
+}
+
+.btn:active {
+background-color: #004080;
+box-shadow: 0 2px #003366;
+transform: translateY(2px);
+}
 </style>
 	</head>
 

@@ -1,17 +1,16 @@
-{% extends 'pages/base.html' %}
+{% extends 'pages/users/base.html' %}
 {% block content %}
 {% load static %}
 
 <main class="main-content">
 <div class="hero hero-slider">
-
 	<ul class="slides">
 		{% for s in slider %}
 		<li style="background-image: url('{{ s.image.url }}');" class="slide-background">
 			<div class="container">
 				<h3 class="slide-title">{{ s.title }}</h3>
 				<p class="slide-desc">{{ s.sub_title }}</p>
-				<a href="#" class="button">Watch Now</a>
+				<a href="{% url 'gallery' %}" class="button">Watch Now</a>
 			</div>
 		</li>
 		{% endfor %}
@@ -24,140 +23,85 @@
 
 	<div class="movie-display">
 		{% for g in gall %}
-		<div class="movie-box"><img src="{{ g.image.url }}" alt="Movie 1"></div>
+		<div class="movie-box">
+			<img src="{{ g.image.url }}" alt="Movie 1">
+			<p  style="text-align: center;margin-top: 5px;">{{g.title}}</p>
+		</div>
 		{% endfor %}
 	</div>
 
 <!--movie-display-->
 	<div class="container">
 		<h2 class="section-title">Our Plans</h2>
-
+				<div class="center-container">
+					<a href="{% url 'gallery' %}" class="btn">1 Day Free Trial</a>
+				</div>
 		<div class="row">
+
 			<div class="payment-plan-container">
 				<div class="payment-plan-card">
-					<img src="{% static 'assets/images/images.png' %}" class="payment-plan-icon">
 					<h3 class="payment-plan-title">Basic Plan</h3>
-					<p class="payment-plan-duration">12 Months Subscription</p>
+					<p class="payment-plan-duration">1 Month Subscription</p>
 					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
-					<p class="payment-plan-price">$49.99 <span class="original-price">$99.95</span></p>
+					<p class="payment-plan-price">$13 <span class="original-price">$20.95</span></p>
 					<ul class="payment-plan-features">
-						<li>✔ 18000 Live channels</li>
+						<li>✔ 18000 Movies and Sports</li>
 						<li>✔ 80000 Movies and TV Shows</li>
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
-						<li>✔ All top sport channels & Pay Per View</li>
-						<li>✔ NBA, NHL, NFL Package</li>
 						<li>✔ Movies & TV shows on demand</li>
-						<li>✔ Anti-Freeze Technology</li>
 					</ul>
 					<button class="subscribe-button">Subscribe</button>
 				</div>
 				
 				<div class="payment-plan-card">
-					<img src="{% static 'assets/images/images.png' %}" class="payment-plan-icon">
 					<h3 class="payment-plan-title">Standard Plan</h3>
-					<p class="payment-plan-duration">12 Months Subscription</p>
+					<p class="payment-plan-duration">3 Months Subscription</p>
 					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
-					<p class="payment-plan-price">$49.99 <span class="original-price">$99.95</span></p>
+					<p class="payment-plan-price">$33 <span class="original-price">$40.95</span></p>
 					<ul class="payment-plan-features">
-						<li>✔ 18000 Live channels</li>
+						<li>✔ 18000 Movies and Sports</li>
 						<li>✔ 80000 Movies and TV Shows</li>
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
-						<li>✔ All top sport channels & Pay Per View</li>
-						<li>✔ NBA, NHL, NFL Package</li>
 						<li>✔ Movies & TV shows on demand</li>
-						<li>✔ Anti-Freeze Technology</li>
 					</ul>
 					<button class="subscribe-button">Subscribe</button>
 				</div>
 				
 				<div class="payment-plan-card">
-					<img src="{% static 'assets/images/images.png' %}" class="payment-plan-icon">
 					<h3 class="payment-plan-title">Premium Plan</h3>
-					<p class="payment-plan-duration">12 Months Subscription</p>
+					<p class="payment-plan-duration">6 Months Subscription</p>
 					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
-					<p class="payment-plan-price">$49.99 <span class="original-price">$99.95</span></p>
+					<p class="payment-plan-price">$53 <span class="original-price">$65.95</span></p>
 					<ul class="payment-plan-features">
-						<li>✔ 18000 Live channels</li>
+						<li>✔ 18000 Movies and Sports</li>
 						<li>✔ 80000 Movies and TV Shows</li>
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
-						<li>✔ All top sport channels & Pay Per View</li>
-						<li>✔ NBA, NHL, NFL Package</li>
 						<li>✔ Movies & TV shows on demand</li>
-						<li>✔ Anti-Freeze Technology</li>
 					</ul>
 					<button class="subscribe-button">Subscribe</button>
 				</div>
 				
 				<div class="payment-plan-card last">
-					<img src="{% static 'assets/images/images.png' %}" class="payment-plan-icon">
 					<h3 class="payment-plan-title">Ultimate Plan</h3>
-					<p class="payment-plan-duration">12 Months Subscription</p>
+					<p class="payment-plan-duration">1 year Subscription</p>
 					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
-					<p class="payment-plan-price">$49.99 <span class="original-price">$99.95</span></p>
+					<p class="payment-plan-price">$73 <span class="original-price">$90.95</span></p>
 					<ul class="payment-plan-features">
-						<li>✔ 18000 Live channels</li>
+						<li>✔ 18000 Movies and Sports</li>
 						<li>✔ 80000 Movies and TV Shows</li>
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
-						<li>✔ All top sport channels & Pay Per View</li>
-						<li>✔ NBA, NHL, NFL Package</li>
 						<li>✔ Movies & TV shows on demand</li>
-						<li>✔ Anti-Freeze Technology</li>
 					</ul>
 					<button class="subscribe-button">Subscribe</button>
 				</div>
 			</div>
+
 		</div>
 	</div> <!-- .container -->
 </div> <!-- .fullwidth-block -->
 
-<div class="fullwidth-block dark-bg" data-bg-color="#1b1b1b">
-	<div class="container">
-		<h2 class="section-title">Services</h2>
-		<div class="row">
-			<div class="col-md-3 col-sm-6">
-				<div class="team">
-					<figure class="team-image"><img src="{% static 'assets/dummy/icon1.png' %}" alt="person-1"></figure>
-					<h3 class="team-name">icon-carff</h3>
-					<div class="team-social">
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-google-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div class="team">
-					<figure class="team-image"><img src="{% static 'assets/dummy/icon2.png' %}" alt="person-2"></figure>
-					<h3 class="team-name">Live Streaming</h3>
-					<div class="team-social">
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-google-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div class="team">
-					<figure class="team-image"><img src="{% static 'assets/dummy/icon3.png' %}" alt="person-3"></figure>
-					<h3 class="team-name">Multi-Platform Accessibility</h3>
-					<div class="team-social">
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-google-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6">
-				<div class="team">
-					<figure class="team-image"><img src="{% static 'assets/dummy/icon4.png' %}" alt="person-4"></figure>
-					<h3 class="team-name">Customer Support</h3>
-					<div class="team-social">
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-google-plus"></i></a>
-					</div>
-				</div>
-			</div>
-			
-		</div> <!-- .row -->
-	</div> <!-- .container -->
-</div> <!-- .fullwidth-block -->
+
+
 
 <div class="fullwidth-block">
 	<div class="container">
@@ -200,13 +144,14 @@
 		{% for n in news %}
 		<ul class="news">
 			<li>
-				<a href="#">
+				<a href="{% url 'more_news' n.id %}">
 				<div class="entry-date"><span class="month">{{n.date}}</span></div>
-				<div class="entry-summary"><h4 style="color: rgb(248, 188, 188);font-size: 22px;">{{n.news_title}}</h4> {{n.description | safe }}</div>
+				<div class="entry-summary"><h4 style="color: rgb(248, 188, 188);font-size: 22px;">{{n.news_title}}</h4> {{n.description | truncatechars:120 | safe }}.....read more</div>
 				</a>
 			</li>
 		</ul>
 		{% endfor %}
+
 		<div class="text-center">
 			<a href="#" class="button invert">Show more news</a>
 		</div>

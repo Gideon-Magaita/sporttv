@@ -4,16 +4,33 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Group
 from ckeditor.widgets import CKEditorWidget
+#auth imports
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User, Group
+
+
+#add user form
+class UserForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder': 'Enter Username'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control','placeholder': 'enter Password'}))
+    group = forms.ModelChoiceField(queryset=Group.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
+
+
+
 
 class EmailForm(ModelForm):
     class Meta:
         model = Email
         fields = ['email_title']
 
+
+
+
 class ContactForm(ModelForm):
     class Meta:
         model = Contact
         fields='__all__'
+
 
 
 class SliderForm(ModelForm):      
@@ -52,11 +69,12 @@ class NewsForm(ModelForm):
 class GalleryForm(ModelForm):
     class Meta:
         model = Gallery
-        fields=['title','image','status']
+        fields=['title','image','category','status']
 
         widgets={
             'title':forms.TextInput(attrs={'class':'form-control','placeholder': 'Enter  title', 'required': 'required'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control', 'required': 'required'}),
+            'category':forms.Select(attrs={'class':'form-control'}),
             'status':forms.Select(attrs={'class':'form-control'}),
         }
 

@@ -27,8 +27,17 @@ def home(request):
         'form': form,
         'gall':gall,
     }
-    return render(request,'pages/home.html',context)
+    return render(request,'pages/users/home.html',context)
 
+
+
+
+def more_news(request,id):
+    news = News.objects.get(id=id)
+    context={
+        'news': news
+    }
+    return render(request,'pages/users/news.html',context)
 
 
 
@@ -37,14 +46,17 @@ def about_info(request):
     context={
         'about': about,
     }
-    return render(request,'pages/about.html',context)
+    return render(request,'pages/users/about.html',context)
+
 
 
 
 def gallery(request):
-    movies = Gallery.objects.all()
+    category = request.GET.get('category', 'movie')  # Default to 'movie' if no category is specified
+    movies = Gallery.objects.filter(category=category)
+
     # Set the number of movies per page
-    movies_per_page = 4 
+    movies_per_page = 5 
     
     paginator = Paginator(movies, movies_per_page)
     
@@ -56,11 +68,44 @@ def gallery(request):
     except EmptyPage:
         movie_page = paginator.page(paginator.num_pages)
     
+    #for cartoon
+    category = request.GET.get('category','cartoon')  # Default to 'movie' if no category is specified
+    cartoon = Gallery.objects.filter(category=category)
+    # Set the number of movies per page
+    catoon_per_page = 5 
+    
+    paginator = Paginator(cartoon, catoon_per_page)
+    
+    page = request.GET.get('page')
+    try:
+        cartoon_page = paginator.page(page)
+    except PageNotAnInteger:
+        cartoon_page = paginator.page(1)
+    except EmptyPage:
+        cartoon_page = paginator.page(paginator.num_pages)
+
+    #for sports
+    category = request.GET.get('category','sports')  # Default to 'movie' if no category is specified
+    sports = Gallery.objects.filter(category=category)
+    # Set the number of movies per page
+    catoon_per_page = 5 
+    
+    paginator = Paginator(sports, catoon_per_page)
+    
+    page = request.GET.get('page')
+    try:
+        sports_page = paginator.page(page)
+    except PageNotAnInteger:
+        sports_page = paginator.page(1)
+    except EmptyPage:
+        sports_page = paginator.page(paginator.num_pages)
+    
     context = {
         'movie_page': movie_page,
+        'cartoon_page':cartoon_page,
+        'sports_page':sports_page,
     }
-    return render(request, 'pages/gallery.html', context)
-
+    return render(request, 'pages/users/gallery.html', context)
 
 
 
@@ -79,4 +124,4 @@ def contact(request):
     context = {
         'form': form,
     }
-    return render(request,'pages/contact.html',context)
+    return render(request,'pages/users/contact.html',context)

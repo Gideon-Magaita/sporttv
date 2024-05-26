@@ -40,15 +40,23 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+    
 
 
+CATEGORY = (
+    ('cartoon','cartoon'),
+    ('movie','movie'),
+    ('sports','sports'),
+)
 class Gallery(models.Model):
     title = models.CharField(max_length=200,null=True,blank=True)
     image = models.FileField(upload_to='images',blank=True,null=True)
+    category = models.CharField(max_length=200,choices=CATEGORY,default='movie')
     status = models.CharField(max_length=200,choices=STATUS,default='unpublish')
 
     def __str__(self):
         return self.title
+    
 
 
 class About(models.Model):

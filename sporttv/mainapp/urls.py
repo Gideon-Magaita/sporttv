@@ -6,6 +6,7 @@ urlpatterns=[
     path('about_info',views.about_info,name='about_info'),
     path('contact',views.contact,name='contact'),
     path('gallery',views.gallery,name='gallery'),
+    path('more_news/<int:id>',views.more_news,name='more_news'),
     #adminurls
     path('admin_home',admins.admin_home,name='admin_home'),
     path('slider_page',admins.slider_page,name='slider_page'),
@@ -24,4 +25,8 @@ urlpatterns=[
     path('delete_contact/<int:id>',admins.delete_contact,name='delete_contact'),
     path('email_details',admins.email_details,name='email_details'),
     path('delete_email/<int:id>',admins.delete_email,name='delete_email'),
+    #authenticationurls
+    path('login_user', admins.login_user,name='login_user'),
+    path('logoutUser', admins.logoutUser,name='logoutUser'),
+
 ]

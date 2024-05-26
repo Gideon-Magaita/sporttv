@@ -1,0 +1,19 @@
+{% extends 'pages/users/base-other.html' %}
+{% block content %}
+{% load static %}
+				
+<div class="fullwidth-block content">
+	{% if news %}
+	<div class="container">
+        <h2>News Page</h2>
+      <p>{{news.news_title}}</p>
+      <p>{{news.description | safe }}</p>
+      <div class="entry-date"><span class="month">
+       <p style="color: black;">Published on - {{news.date}}</p> 
+    </span></div>	
+      <p></p>	
+	</div>
+	{% endif %}
+</div>
+
+{% endblock %}
