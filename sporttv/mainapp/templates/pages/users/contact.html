@@ -11,9 +11,9 @@
 				{% include 'message.html' %}
 				<form action="#" class="contact-form" method="post">
 					{% csrf_token %}
-					<input type="text" name="name" id="name" placeholder="Name...">
-					<input type="email" name="email" id="email" placeholder="Email...">
-					<input type="text" name="website" id="website" placeholder="Website...">
+					<input type="text" name="name" id="name" placeholder="Name..." required>
+					<input type="email" name="email" id="email" placeholder="Email..." required>
+					<input type="text" name="website" id="website" placeholder="Website..." required>
 					<textarea name="message" id="message" placeholder="Message..."></textarea>
 					<div class="text-right">
 						<input type="submit" value="Send message">
