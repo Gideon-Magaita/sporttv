@@ -35,10 +35,11 @@
     flex: 1 1 200px;
     max-width: 200px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
     background-color: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #f62b2b; /* Border color */
 }
 .movie-box:hover {
     transform: translateY(-10px);
@@ -92,6 +93,48 @@
 	border-color: #007bff;
 	color: white;
 }
+/*gallery movie display container styles*/
+.movie-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between movie boxes */
+    justify-content: center;
+    padding: 20px;
+    border-radius:30px;
+    background-color: #191919; /* Background color for the display area */
+}
+
+.movie-box {
+    background-color: #ffffff; /* Background color for each movie box */
+    border-radius: 10px; /* Rounded corners for each movie box */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for each movie box */
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 200px; /* Adjust the width as needed */
+    text-align: center;
+}
+
+.movie-box:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.movie-box img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd; /* Border between the image and title */
+}
+
+.title {
+    padding: 10px;
+}
+
+.title p {
+    margin: 0;
+    font-size: 18px;
+    color: #333; /* Color for the title text */
+}
+/*end gallery movie container styles*/
 </style>
 	</head>
 
@@ -112,7 +155,7 @@
 						<ul class="menu">
 							<li class="menu-item {% if request.path == '/' %}current-menu-item{% endif %}"><a href="{% url 'home' %}">Home</a></li>
 							<li class="menu-item {% if request.path == '/about_info' %}current-menu-item{% endif %}"><a href="{% url 'about_info' %}">About</a></li>
-							<li class="menu-item {% if request.path == '/gallery' %}current-menu-item{% endif %}"><a href="{% url 'gallery' %}">Gallery</a></li>
+							<li class="menu-item {% if request.path == '/gallery' %}current-menu-item{% endif %}"><a href="{% url 'gallery' %}">Categories</a></li>
 							<li class="menu-item {% if request.path == '/contact' %}current-menu-item{% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
 						</ul>
 					</nav>
@@ -131,7 +174,7 @@
 					<div class="subscribe-form">
 						<form action="#">
 							<input type="text" placeholder="Enter your email to subscribe...">
-							<button type="submit"><img src="images/icon-envelope-white.png" alt=""></button>
+							<button type="submit"><img src="{% static 'assets/images/icon-envelope-white.png' %}" alt=""></button>
 						</form>
 					</div>
 					<div class="social-links">

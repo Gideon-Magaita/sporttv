@@ -21,27 +21,33 @@
 <div class="fullwidth-block">
 <!--movie-display-->
 
-	<div class="movie-display">
-		{% for g in gall %}
-		<div class="movie-box">
-			<img src="{{ g.image.url }}" alt="Movie 1">
-			<p  style="text-align: center;margin-top: 5px;">{{g.title}}</p>
-		</div>
-		{% endfor %}
-	</div>
+<div class="movie-display swiper-container">
+    <div class="swiper-wrapper">
+        {% for g in gall %}
+        <div class="swiper-slide">
+            <div class="movie-box">
+                <img src="{{ g.image.url }}" alt="Movie 1">
+                <p style="text-align: center; margin-top: 5px;">{{ g.title }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+	<!-- Navigation buttons -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
 
 <!--movie-display-->
-	<div class="container">
-		<h2 class="section-title">Our Plans</h2>
+	<div class="container plan-container">
+		<h2 class="section-title" style="color:#ffffff;">Our Plans</h2>
 				<div class="center-container">
-					<a href="{% url 'gallery' %}" class="btn">1 Day Free Trial</a>
+					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" class="btn">1 Day Free Trial</a>
 				</div>
 		<div class="row">
 
 			<div class="payment-plan-container">
 				<div class="payment-plan-card">
-					<h3 class="payment-plan-title">Basic Plan</h3>
-					<p class="payment-plan-duration">1 Month Subscription</p>
+					<h3 class="payment-plan-title">1 Month Subscription</h3>
 					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
 					<p class="payment-plan-price">$13 <span class="original-price">$20.95</span></p>
 					<ul class="payment-plan-features">
@@ -50,12 +56,11 @@
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
 						<li>✔ Movies & TV shows on demand</li>
 					</ul>
-					<button class="subscribe-button">Subscribe</button>
+					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
 				</div>
 				
 				<div class="payment-plan-card">
-					<h3 class="payment-plan-title">Standard Plan</h3>
-					<p class="payment-plan-duration">3 Months Subscription</p>
+					<h3 class="payment-plan-title">3 Months Subscription</h3>
 					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
 					<p class="payment-plan-price">$33 <span class="original-price">$40.95</span></p>
 					<ul class="payment-plan-features">
@@ -64,12 +69,11 @@
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
 						<li>✔ Movies & TV shows on demand</li>
 					</ul>
-					<button class="subscribe-button">Subscribe</button>
+					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
 				</div>
 				
 				<div class="payment-plan-card">
-					<h3 class="payment-plan-title">Premium Plan</h3>
-					<p class="payment-plan-duration">6 Months Subscription</p>
+					<h3 class="payment-plan-title">6 Months Subscription</h3>
 					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
 					<p class="payment-plan-price">$53 <span class="original-price">$65.95</span></p>
 					<ul class="payment-plan-features">
@@ -78,12 +82,11 @@
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
 						<li>✔ Movies & TV shows on demand</li>
 					</ul>
-					<button class="subscribe-button">Subscribe</button>
+					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
 				</div>
 				
 				<div class="payment-plan-card last">
-					<h3 class="payment-plan-title">Ultimate Plan</h3>
-					<p class="payment-plan-duration">1 year Subscription</p>
+					<h3 class="payment-plan-title">1 year Subscription</h3>
 					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
 					<p class="payment-plan-price">$73 <span class="original-price">$90.95</span></p>
 					<ul class="payment-plan-features">
@@ -92,12 +95,18 @@
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
 						<li>✔ Movies & TV shows on demand</li>
 					</ul>
-					<button class="subscribe-button">Subscribe</button>
+					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
 				</div>
 			</div>
 
 		</div>
-	</div> <!-- .container -->
+	</div> 
+	<!-- .container -->
+
+
+
+
+
 </div> <!-- .fullwidth-block -->
 
 
@@ -106,39 +115,45 @@
 <div class="fullwidth-block">
 	<div class="container">
 		<h2 class="section-title">Why choose us?</h2>
-		<div class="row">
-			<div class="col-md-4">
+		<div class="row rows">
+
+			<div class="col-md-4 col-md-44">
 				<div class="feature">
 					<div class="feature-icon">
-						<img src="{% static '/assets/images/icon-wheel-white.png' %}">
+						<img src="{% static 'images/remote.png' %}">
 					</div>
 					<h3 class="feature-title">Extensive Library of Content</h3>
 					<p>This variety ensures that there is something for every taste and preference, making it a one-stop destination for entertainment.</p>
 				</div>
 			</div>
-			<div class="col-md-4">
+
+			<div class="col-md-4 col-md-44">
 				<div class="feature">`
 					<div class="feature-icon">
-						<img src="{% static 'assets/images/icon-wrench-white.png' %}">
+						<img src="{% static 'images/interface.png' %}">
 					</div>
 					<h3 class="feature-title">User-Friendly Interface</h3>
 					<p>An intuitive and easy-to-navigate interface enhances the user experience.</p>
 				</div>
 			</div>
-			<div class="col-md-4">
+
+			<div class="col-md-4 col-md-44">
 				<div class="feature">
 					<div class="feature-icon">
-						<img src="{% static 'assets/images/icon-key-white.png' %}">
+						<img src="{% static 'images/tv.png' %}">
 					</div>
 					<h3 class="feature-title">High-Quality Streaming</h3>
 					<p>Superior streaming quality ensures that viewers can fully immerse themselves in their favorite shows and movies.</p>
 				</div>
 			</div>
+
 		</div> <!-- .row -->
+
+
 	</div> <!-- .container -->
 </div> <!-- .fullwidth-block -->
 
-<div class="fullwidth-block dark-bg" data-bg-color="#f63f3f">
+<div class="fullwidth-block dark-bg" data-bg-color="#c5974f">
 	<div class="container">
 		<h2 class="section-title">Blog news</h2>
 		{% for n in news %}
@@ -146,17 +161,44 @@
 			<li>
 				<a href="{% url 'more_news' n.id %}">
 				<div class="entry-date"><span class="month">{{n.date}}</span></div>
-				<div class="entry-summary"><h4 style="color: rgb(248, 188, 188);font-size: 22px;">{{n.news_title}}</h4> {{n.description | truncatechars:120 | safe }}.....read more</div>
+				<div class="entry-summary"><h4 style="color: rgb(255, 255, 255);font-size: 22px;">{{n.news_title}}</h4> {{n.description | truncatechars:120 | safe }}.....read more</div>
 				</a>
 			</li>
 		</ul>
 		{% endfor %}
 
 		<div class="text-center">
-			<a href="#" class="button invert">Show more news</a>
+			<a href="" class="button invert" style="color: #c5974f;">Show more news</a>
 		</div>
 	</div>
 </div>
+<!--FAQ-->
+<div class="fullwidth-block" style="background-color: #f7f7f7;">
+    <div class="container">
+        <h2 class="section-title text-center" style="color: #c5974f;">Frequently Asked Questions</h2>
+
+        <div class="accordion">
+            <!-- FAQ Item 1 -->
+            <div class="accordion-item">
+                <button class="accordion-button">Question 1?</button>
+                <div class="accordion-content">
+                    <p>Answer to question 1.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="accordion-item">
+                <button class="accordion-button">Question 2?</button>
+                <div class="accordion-content">
+                    <p>Answer to question 2.</p>
+                </div>
+            </div>
+
+            <!-- Add more FAQ items as needed -->
+        </div>
+    </div>
+</div>
+<!--END FAQ-->
 </main> 
 
 <footer class="site-footer">
