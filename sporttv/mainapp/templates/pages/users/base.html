@@ -5,9 +5,9 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
-		
+
 		<title>JOHNSPORTTV</title>
-		
+
 		<!-- Loading third party fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Titillium+Web:300,400,700|" rel="stylesheet" type="text/css">
 		<link href="{% static 'assets/fonts/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
         <!-- Swiper JS -->
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-		
+
 
 <style>
 /*payment pln cards*/
@@ -99,8 +99,29 @@
     font-size:40px;
     font-weight: bold;
     margin-bottom:20px;
-    text-align: center; 
+    text-align: center;
 }
+/* Media Queries */
+@media (max-width: 768px) {
+        .payment-plan-title {
+            font-size: 20px;
+        }
+
+        .payment-plan-price {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .payment-plan-title {
+            font-size: 18px;
+        }
+
+        .payment-plan-price {
+            font-size: 20px;
+        }
+}
+/* End Media Queries */
 
 .payment-plan-duration,
 .payment-plan-highlight,
@@ -227,6 +248,20 @@ margin-bottom: 10px;
     border-radius: 50px;
     cursor: pointer;
 }
+/* Media Queries */
+@media (max-width: 768px) {
+        .sub-btn {
+            font-size:20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sub-btn {
+            font-size:16px;
+        }
+
+}
+/* End Media Queries */
 
 .btn:hover {
 background-color: #c5974f;
@@ -243,7 +278,7 @@ box-shadow: 0 2px #003366;
 transform: translateY(2px);
 }
 .hero-slider {
-    height:600px; 
+    height:600px;
     overflow: hidden;
     width: auto !important;
 }
@@ -354,14 +389,57 @@ transform: translateY(2px);
     color: #666;
 }
 /*why choose us*/
+/* Media Queries */
+@media (max-width: 768px) {
+        .slide-title {
+            font-size: 28px;
+        }
+
+        .slide-desc {
+            font-size: 16px;
+        }
+
+        .button {
+            padding: 8px 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .slide-title {
+            font-size: 24px;
+        }
+
+        .slide-desc {
+            font-size: 14px;
+        }
+
+        .button {
+            padding: 6px 12px;
+        }
+}
+/*transparent container*/
+.container {
+    position: relative;
+}
+
+.text-container {
+    background-color: rgba(0, 0, 0, 0.4); /* Adjust the rgba values to achieve the desired transparency */
+    padding: 10px; /* Add some padding if needed */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    display: inline-block; /* Adjust display as needed */
+}
+
+.slide-title, .slide-desc {
+    margin: 0;
+}
 </style>
 	</head>
 
 
 	<body class="header-collapse">
-		
+
 		<div id="site-content">
-			
+
 			<header class="site-header">
 				<div class="container">
 					<a id="branding" href="{% url 'home' %}">
@@ -377,7 +455,7 @@ transform: translateY(2px);
 							<li class="menu-item {% if request.path == '/gallery' %}current-menu-item{% endif %}"><a href="{% url 'gallery' %}">Categories</a></li>
 							<li class="menu-item {% if request.path == '/contact' %}current-menu-item{% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
 
-                            <li class="menu-btn"><a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;">Subscribe Now</a></li>
+                            <li class="menu-btn"><a href="https://wa.me/+255756705174?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;">Subscribe Now</a></li>
 
 						</ul>
 					</nav>
@@ -396,7 +474,7 @@ transform: translateY(2px);
 
 		</div> <!-- #site-content -->
 
-		
+
 
 		<script src="{% static 'assets/js/jquery-1.11.1.min.js' %}"></script>
 		<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
@@ -418,12 +496,12 @@ transform: translateY(2px);
                     prevEl: '.swiper-button-prev', // Previous button selector
                 },
                 spaceBetween:0 // Adjust the space between slides (in pixels)
-               
+
             });
         </script>
-        
-        
-		
+
+
+
 	</body>
 
 </html>

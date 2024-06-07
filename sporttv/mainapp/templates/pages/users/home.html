@@ -8,9 +8,11 @@
 		{% for s in slider %}
 		<li style="background-image: url('{{ s.image.url }}');" class="slide-background">
 			<div class="container">
-				<h3 class="slide-title">{{ s.title }}</h3>
-				<p class="slide-desc">{{ s.sub_title }}</p>
-				<a href="{% url 'gallery' %}" class="button">Watch Now</a>
+				<div class="text-container">
+					<h3 style="color:#ffffff;font-size:40px;">{{ s.title }}</h3>
+					<p class="slide-desc">{{ s.sub_title }}</p>
+				</div>
+				<a href="https://wa.me/+255756705174?text=Hello,%20I%20am%20interested%20in%20subscribing!" class="button" style="margin-top:7%;">Watch Now</a>
 			</div>
 		</li>
 		{% endfor %}
@@ -33,22 +35,20 @@
         {% endfor %}
     </div>
 	<!-- Navigation buttons -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+
 </div>
 
 <!--movie-display-->
 	<div class="container plan-container">
 		<h2 class="section-title" style="color:#ffffff;">Our Plans</h2>
 				<div class="center-container">
-					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" class="btn">1 Day Free Trial</a>
+					<a href="https://wa.me/+255756705174?text=Hello,%20I%20am%20interested%20in%20subscribing!" class="btn">1 Day Free Trial</a>
 				</div>
 		<div class="row">
 
 			<div class="payment-plan-container">
 				<div class="payment-plan-card">
 					<h3 class="payment-plan-title">1 Month Subscription</h3>
-					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
 					<p class="payment-plan-price">$13 <span class="original-price">$20.95</span></p>
 					<ul class="payment-plan-features">
 						<li>✔ 18000 Movies and Sports</li>
@@ -56,12 +56,11 @@
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
 						<li>✔ Movies & TV shows on demand</li>
 					</ul>
-					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
+					<a href="https://wa.me/+255756705174?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
 				</div>
-				
+
 				<div class="payment-plan-card">
 					<h3 class="payment-plan-title">3 Months Subscription</h3>
-					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
 					<p class="payment-plan-price">$33 <span class="original-price">$40.95</span></p>
 					<ul class="payment-plan-features">
 						<li>✔ 18000 Movies and Sports</li>
@@ -69,12 +68,11 @@
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
 						<li>✔ Movies & TV shows on demand</li>
 					</ul>
-					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
+					<a href="https://wa.me/+255756705174?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
 				</div>
-				
+
 				<div class="payment-plan-card">
 					<h3 class="payment-plan-title">6 Months Subscription</h3>
-					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
 					<p class="payment-plan-price">$53 <span class="original-price">$65.95</span></p>
 					<ul class="payment-plan-features">
 						<li>✔ 18000 Movies and Sports</li>
@@ -82,12 +80,11 @@
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
 						<li>✔ Movies & TV shows on demand</li>
 					</ul>
-					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
+					<a href="https://wa.me/+255756705174?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
 				</div>
-				
+
 				<div class="payment-plan-card last">
 					<h3 class="payment-plan-title">1 year Subscription</h3>
-					<p class="payment-plan-highlight">Only Onetime. MOST POPULAR</p>
 					<p class="payment-plan-price">$73 <span class="original-price">$90.95</span></p>
 					<ul class="payment-plan-features">
 						<li>✔ 18000 Movies and Sports</li>
@@ -95,12 +92,12 @@
 						<li>✔ 4K, Full HD, HD & SD Channels</li>
 						<li>✔ Movies & TV shows on demand</li>
 					</ul>
-					<a href="https://wa.me/+255677613790?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
+					<a href="https://wa.me/+255756705174?text=Hello,%20I%20am%20interested%20in%20subscribing!" style="color:#ffffff;" class="sub-btn">Subscribe Now</a>
 				</div>
 			</div>
 
 		</div>
-	</div> 
+	</div>
 	<!-- .container -->
 
 
@@ -199,7 +196,7 @@
     </div>
 </div>
 <!--END FAQ-->
-</main> 
+</main>
 
 <footer class="site-footer">
 	<div class="container">
@@ -207,7 +204,7 @@
 			{% include 'message.html' %}
 			<form action="#" method="post">
 				{% csrf_token %}
-				<input type="text" name="email_title" placeholder="Enter your email to subscribe...">
+				<input type="text" name="email_title" placeholder="Enter your email to subscribe..." required>
 				<button type="submit"><img src="{% static 'assets/images/icon-envelope-white.png' %}" alt=""></button>
 			</form>
 		</div>
